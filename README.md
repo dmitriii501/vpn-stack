@@ -1,2 +1,19 @@
-# vpn-stack
-Multi-server VPN setup (VLESS/Reality or similar) for testing and personal use. Hourly servers, simple configs.
+# vpn#
+
+VPN-сервис с отсылкой на C# (Sharp).
+
+## О проекте
+
+Тестовый/личный multi-server VPN-стек (VLESS/Reality и т.п.). Сервера по часовой оплате, простые конфиги.
+
+Целевая аудитория на старте — техническая (те, кто сам поднимает сервера).
+
+## Структура
+
+- `servers/` — конфиги и скрипты для серверов
+- `clients/` — клиентские конфиги / инструкции
+- `GROK.md` — заметки и контекст проекта
+
+## Статус
+
+В процессе настройки. Название: **vpn#**
