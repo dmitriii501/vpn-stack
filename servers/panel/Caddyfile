@@ -1,0 +1,14 @@
+{
+    auto_https disable_redirects
+    http_port 80
+}
+
+http://vpnsh.ru, http://www.vpnsh.ru, http://defenceai.ru {
+    bind 0.0.0.0
+}
+
+https://defenceai.ru:8443, https://vpnsh.ru:8443, https://www.vpnsh.ru:8443 {
+    bind 127.0.0.1
+    encode gzip
+    reverse_proxy 127.0.0.1:3000
+}

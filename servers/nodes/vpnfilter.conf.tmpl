@@ -1,0 +1,22 @@
+#!/usr/sbin/nft -f
+# VPN node firewall. Idempotent: own table, does NOT flush fail2ban's table.
+# Открыто: 22 (SSH), 443 (Xray). 8090 (loadstat) — только с IP панели.
+add table inet vpnfilter
+delete table inet vpnfilter
+table inet vpnfilter {
+    set panel_v4 { type ipv4_addr; elements = { __PANEL_IP__ } }
+    chain input {
+        type filter hook input priority filter; policy drop;
+        ct state established,related accept
+        ct state invalid drop
+        iif "lo" accept
+        ip protocol icmp accept
+        ip6 nexthdr ipv6-icmp accept
+        tcp dport 22 accept
+        tcp dport 443 accept
+        udp dport 443 accept
+        ip saddr @panel_v4 tcp dport 8090 accept
+    }
+    chain forward { type filter hook forward priority filter; policy drop; }
+    chain output { type filter hook output priority filter; policy accept; }
+}

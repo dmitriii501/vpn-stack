@@ -1,0 +1,6 @@
+[Unit]
+Description=vpn# node health check
+
+[Service]
+Type=oneshot
+ExecStart=/opt/vpn-web/health.sh

@@ -20,6 +20,11 @@
 - GitHub: https://github.com/dmitriii501/vpn-stack
 - У пользователя уже есть ИП
 - Рассматривались хостеры с почасовой оплатой (Hostes и др.)
+- **Инфраструктура поднята** (см. `docs/architecture.md`):
+  - панель `90.156.221.114`: сайт vpnsh.ru / defenceai.ru (Caddy + nitro/srvx + PGlite),
+    3x-ui (Xray Reality), подписки `/sub/<code>`, оплата Т-Банк, Telegram-бот, RustDesk
+  - ноды DE / PL / NL: Xray VLESS+Reality (xhttp) на `:443`, loadstat `:8090`
+  - безопасность: SSH только по ключу, fail2ban, nftables default-drop, бэкапы off-site
 
 ## Что не делать
 

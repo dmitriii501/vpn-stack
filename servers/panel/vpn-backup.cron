@@ -1,0 +1,2 @@
+# VPN stack daily backup at 03:30 UTC (shipped off-site to __BACKUP_REMOTE__)
+30 3 * * * root /usr/local/bin/vpn-backup.sh >> /var/log/vpn-backup.log 2>&1

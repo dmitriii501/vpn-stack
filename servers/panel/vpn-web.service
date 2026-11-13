@@ -1,0 +1,17 @@
+[Unit]
+Description=vpn# web
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/vpn-web
+ExecStart=/opt/vpn-web/node_modules/.bin/srvx serve --prod --port=3000 --host=0.0.0.0 --static=/opt/vpn-web/static --entry=./functions/__server.func/index.mjs
+Restart=on-failure
+RestartSec=2
+Environment=NODE_ENV=production
+EnvironmentFile=/etc/vpn-web.env
+TimeoutStopSec=15
+KillMode=mixed
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target
